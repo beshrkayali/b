@@ -1,5 +1,5 @@
-B, a hyde theme
-===============
+B-Theme
+=======
 
 
 This piece of code is a [Hyde](https://github.com/lakshmivyas/hyde) theme I created for use on my [personal site](http://beshr.com). It’s trendy, clean and responsive.
