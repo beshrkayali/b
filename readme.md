@@ -5,7 +5,7 @@ B, a hyde theme
 This piece of code is a [Hyde](https://github.com/lakshmivyas/hyde) theme I created for use on my [personal site](http://beshr.com). It’s trendy, clean and responsive.
 
 Here’s how it looks like:
-<img src="http://i.imgur.com/TjMMi.png" style=“width:100%”>
+<img src="http://i.imgur.com/ZgEYt.png" style="width:100%">
 
 
 ## How does it work? ##
