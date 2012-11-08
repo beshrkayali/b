@@ -1,0 +1,38 @@
+{% extends "skeleton/_body.html" %}
+{% block content_body %}
+
+<p class="title"><span>Latest Entry</span></p>
+{% recent_posts last_post 1 %}
+
+<article>
+	<h1>{{last_post.0.title}}</h1>
+	<section class="info">Published on {{last_post.0.created}} <a class="permalink" href="{{last_post.0.url}}"></a></section>
+
+	{% render_article last_post.0 %}
+</article>
+
+
+<section id="articlesList">
+	<p class="title"><span>Previous Entries</span></p>	
+
+	{% recent_posts recents 5 %}
+
+	{% for post in recents %}
+		{% if not forloop.first %}
+		<article>
+			
+		    <h1><a href="{{post.url}}">{% with post.name_without_extension|remove_date_prefix|unslugify as default_title %}{{post.title|default_if_none:default_title }}{%endwith%}</a></h1>
+
+		    {% if post.created %}<section class="info">Published on {{post.created}}</section>{% endif %}
+
+			<section class="excerpt">
+				{% render_excerpt post %}
+			</section>
+
+		</article>
+		<div class="clear"></div>
+		{% endif %}
+	{% endfor %} 
+</section>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "skeleton/_root.html" %}
+{% block all %}
+{%spaceless%}
+
+{% for list_page in node.pages %}
+{% ifnotequal list_page node.listing_page %}
+{% if not list_page.exclude %}
+<article>
+	{% with list_page.name_without_extension|remove_date_prefix|unslugify as default_title %}
+        <h1><a href="{{list_page.url}}">{{list_page.title|default_if_none:default_title }}</a></h1>
+    {%endwith%}
+
+    {% if list_page.created %}<section class="info">Published on {{list_page.created}}</section>{% endif %}
+
+	<section class="excerpt">
+		{% render_excerpt list_page %}
+	</section>
+
+</article>
+<div class="clear"></div>
+{%endif%}
+{% endifnotequal %}
+{% endfor %}
+{%endspaceless%}
+{% endblock %}

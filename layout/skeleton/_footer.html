@@ -1,0 +1,25 @@
+<footer>
+	<p class="title"><span>The Footer</span></p>
+	<p>Statically generated with <a href="https://github.com/lakshmivyas/hyde">Hyde</a>.</p>
+	<p>Find me on <a href="http://twitter.com/{{TWITTER_ACCOUNT}}">Twitter</a> or <a href="http://github.com/{{GITHUB_ACCOUNT}}">Github</a>.</p>
+	<p>All Content is Licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC:NC:SA</a> unless otherwise noted.</p>
+	<p id="year">2012</p>
+</footer>
+
+
+{% block js %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://raw.github.com/davatron5000/FitText.js/master/jquery.fittext.js"></script>
+<script>
+	$("h1").fitText(1.7, {minFontSize:'25px'});
+	$("section#articlesList h1").fitText(3, {minFontSize:'18px'});
+	$("header h2").fitText(2, {minFontSize:'20px'});
+	$("p.title").fitText(4, {minFontSize:'13px'});
+</script>
+
+<script>
+	var year = new Date();
+	$('#year').html(year.getFullYear());
+</script>
+{% block extra_js %}{% endblock %}
+{% endblock %}

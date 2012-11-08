@@ -1,0 +1,75 @@
+{% extends "skeleton/_root.html" %}
+{% block all %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{site.name}} {% ifnotequal page.module site.module %}- {{ page.title }}{% endifnotequal %}</title>
+  {% block feeds %}
+  <link href="{{site.url}}/blog/atom.xml" rel="alternate" title="{{site.name}}" type="application/atom+xml"/>
+  {% endblock %}
+
+  <meta name="description" content="{% ifnotequal page.module site.module %}{{page.description}}{%else %}{{SITE_DESCRIPTION_TEXT}}{% endifnotequal %}">
+  <meta name="author" content="{{site.name}}">
+  
+  <!-- Optimized mobile viewport -->
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=no" />
+
+  {% block css %}
+  <link rel="stylesheet" href="{{site.url}}/media/css/reset.css">
+  <link rel="stylesheet" href="{{site.url}}/media/css/styles.css">
+
+  <!-- Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,900' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <!-- /Fonts -->
+
+  {% block extra_css %}{% endblock %}
+  {% endblock %}
+
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+</head>
+<body>
+{% block nav %}
+{% if site.children %}
+<nav>
+    <ul>
+        <li{% ifequal page.module site.module %} class="selected" {% endifequal %}><a href="{{site.listing_url}}">Home</a></li>
+        
+        {% for module in site.children %}
+        {% if module.name|unslugify != 'Demos' %}
+        <li{% ifequal page.module module %} class="selected" {% endifequal %}>
+            <a href="{{module.listing_url}}">{{module.name|unslugify}}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}
+
+{% include "skeleton/_header.html" %}
+
+    {% block content %}{% endblock %}
+
+{% include "skeleton/_footer.html" %}
+</body>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '{{GA_ACCOUNT}}']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</html>
+{% endblock %}
