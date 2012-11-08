@@ -1,8 +1,7 @@
 B-Theme
 =======
 
-
-This piece of code is a [Hyde](https://github.com/lakshmivyas/hyde) theme I created for use on my [personal site](http://beshr.com). It’s trendy, clean and responsive.
+A Trendy, Clean and Responsive theme for [Hyde](https://github.com/lakshmivyas/hyde) I created for my [personal site](http://beshr.com). 
 
 Here’s how it looks like:
 <img src="http://i.imgur.com/ZgEYt.png" style="width:100%">
