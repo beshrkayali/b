@@ -47,6 +47,6 @@ def clean():
 
 
 def pushpullcleangenerate():
-    pushpusll()
+    pushpull()
     clean()
     generate()
